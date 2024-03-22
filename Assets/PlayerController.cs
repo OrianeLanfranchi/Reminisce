@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] public float jumpForce = 10f; // Force de saut du personnage
     [SerializeField] public float dashForce = 20f; // Force de dash du personnage
-    [SerializeField] public float groundCheckDistance = -0.1f; // Distance de vérification du sol
+    [SerializeField] public float groundCheckDistance = 0.1f; // Distance de vérification du sol
     [SerializeField] public LayerMask groundLayer; // Layer du sol
     [SerializeField] public Rigidbody2D rb; // Rigidbody2D du personnage
 
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
 
         // Si le personnage est au sol et la barre d'espace est pressée, effectuer un saut
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             Player_animator.SetBool("BoolWalk", false); // stop run animation
             // Ajouter une force vers le haut pour effectuer un saut
