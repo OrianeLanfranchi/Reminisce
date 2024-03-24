@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8fb5ca658318ad34db13c5bdcb9d83bf
+guid: d256d44275931f049b9b3b3320bc2cf1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,22 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ENVIRONMENT_Floor_Right2_0
+      name: ENVIRONMENT_Floor_Lbot_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 613
+        y: 537
         width: 2480
-        height: 1024
+        height: 1101
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e57e25cf5da46fb4a98f2743507fb766
-      internalID: 546967948
+      spriteID: 14afa7da86104f44faecbcb20c40e0d5
+      internalID: 440567862
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ENVIRONMENT_Floor_Right2_0: 546967948
+      ENVIRONMENT_Floor_Lbot_0: 440567862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

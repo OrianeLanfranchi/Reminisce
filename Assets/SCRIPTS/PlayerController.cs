@@ -37,15 +37,12 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        // Vérifier si le personnage est au sol
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
 
         // Si le personnage est au sol et la barre d'espace est pressée, effectuer un saut
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             Player_animator.SetBool("BoolWalk", false); // stop run animation
             // Ajouter une force vers le haut pour effectuer un saut
-            rb.velocity = new Vector2(rb.velocity.x, 0); // Réinitialiser la vitesse en Y pour éviter les sauts doubles
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
@@ -54,7 +51,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow)) // when right arrow
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);  // movement to the right
+            //transform.Translate(Vector3.right * speed * Time.deltaTime);  // movement to the right
+            rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
             Player_animator.SetBool("BoolWalk", true); // run animation
             spriteRenderer.flipX = false; // sprite not flipped
         }
@@ -74,5 +72,10 @@ public class PlayerController : MonoBehaviour
             Player_animator.SetBool("BoolWalk", false); // stop run animation
         }
 
+    }
+
+    bool IsGrounded()
+    {
+        return rb.velocity.y == 0;
     }
 }

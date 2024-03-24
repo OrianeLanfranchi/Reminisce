@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - UI
   - BACKGROUND
   - FOREGROUND
-  - 
+  - Player
   - 
   - 
   - 
@@ -43,6 +44,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3742777799
+    locked: 0
+  - name: Interactables
+    uniqueID: 1203363913
     locked: 0
   - name: Entity
     uniqueID: 2162645637
