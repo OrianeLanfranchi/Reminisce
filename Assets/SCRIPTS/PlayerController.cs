@@ -51,8 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow)) // when right arrow
         {
-            //transform.Translate(Vector3.right * speed * Time.deltaTime);  // movement to the right
-            rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
+            transform.Translate(Vector3.right * speed * Time.deltaTime);  // movement to the right
             Player_animator.SetBool("BoolWalk", true); // run animation
             spriteRenderer.flipX = false; // sprite not flipped
         }
