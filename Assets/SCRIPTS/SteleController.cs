@@ -8,6 +8,5 @@ public class SteleController : MonoBehaviour
     public virtual void onInteract()
     {
         Stele_Animator.SetBool("isActivated", true);
-
     }
 }
