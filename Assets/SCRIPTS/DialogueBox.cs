@@ -4,6 +4,7 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using TMPro;
 using UnityEditor.Rendering;
+using System;
 
 public class DialogueBox : MonoBehaviour
 {
@@ -18,8 +19,27 @@ public class DialogueBox : MonoBehaviour
     private int charIndex;
     private bool started;
     //wait for next bool
-    private bool waitForNext = false;
+    private bool waitForNext;
 
+    private void Start()
+    {
+        index = 0;
+        ToggleWindow(false);
+        started = false;
+        waitForNext = false;
+    }
+    public virtual void onInteract()
+    {
+        Debug.Log("oI - C'est pété");
+        StartDialogue();
+    }
+
+    public void CloseWindow()
+    {
+        window.SetActive(false);
+        index = 0;
+        charIndex = 0;
+    }
 
     private void ToggleWindow(bool show)
     {
@@ -34,28 +54,36 @@ public class DialogueBox : MonoBehaviour
     //Start Dialogue 
     public void StartDialogue()
     {
+        Debug.Log("SD - C'est pété");
         //show window
         ToggleWindow(true);
         //hide indicator
         //ToggleWindow(false);
-
-        GetDialogue(0);
+        GetDialogue(index);
     }
 
     private void GetDialogue(int i)
     {
-        if (!started)
+
+        Debug.Log("GD - 1 - C'est pété");
+        started = true;
+        Debug.Log("GD - 2 - C'est pété");
+        //start with index at 0
+        //set index at 0
+        index = i;
+        //Reset character index
+        charIndex = 0;
+        //clear dialogue component text
+        if(index < dialogues.Count)
         {
-            started = true;
-            //start with index at 0
-            //set index at 0
-            index = i;
-            //Reset character index
-            charIndex = 0;
-            //clear dialogue component text
             dialogueText.text = string.Empty;
             //Start writing
             StartCoroutine(Writing());
+        }
+        else
+        {
+            ToggleWindow(false);
+            index = 0;
         }
     }
 
@@ -69,7 +97,9 @@ public class DialogueBox : MonoBehaviour
     //Writing logic
     IEnumerator Writing()
     {
-        string currentDialogue = dialogues[index];
+        Debug.Log("W - C'est pété");
+        string currentDialogue = dialogues[index]; //ça pète ici 
+        Debug.Log("C'est pas pété ?");
         //write characters
         dialogueText.text += currentDialogue[charIndex];
         //increase the character index
@@ -86,19 +116,20 @@ public class DialogueBox : MonoBehaviour
         }
         else
         {
-            waitForNext = true;
+            index++;
         }
+
     }
 
     private void Update()
     {
         if (!started) return;
 
-        if (waitForNext && Input.GetKeyDown(KeyCode.E))
+        if (waitForNext && Input.GetKeyDown(KeyCode.A))
         {
             waitForNext = false;
             index++;
-            if(index < dialogues.Count)
+            if (index < dialogues.Count)
             {
                 GetDialogue(index);
             }

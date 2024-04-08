@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+    public UnityEvent leavetAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,11 @@ public class Interactable : MonoBehaviour
         if(isInRange && Input.GetKeyDown(interactKey))
         {
             interactAction.Invoke();
+        }
+
+        if (!isInRange)
+        {
+            leavetAction.Invoke();
         }
     }
 
