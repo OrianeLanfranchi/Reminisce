@@ -11,14 +11,16 @@ public class DoorController : MonoBehaviour
     public virtual void zoomOutCamera()
     {
         Debug.Log("Zoom out");
-        cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 25.0f, Time.deltaTime);
+        while(cam.m_Lens.OrthographicSize != 20.0f)
+            cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 20.0f, Time.deltaTime);
+        Debug.Log("chat cpluspt");
     }
 
     public virtual void zoomInCamera()
     {
         Debug.Log("Zoom in");
-        //cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 12.22f, Time.deltaTime);
-        cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 12.22f, Time.deltaTime);
+        while(cam.m_Lens.OrthographicSize != 12.22f)
+            cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 12.22f, Time.deltaTime);
     }
 
 

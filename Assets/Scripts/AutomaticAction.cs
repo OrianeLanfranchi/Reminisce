@@ -18,7 +18,7 @@ public class AutomaticAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isInRange)
+        if(isInRange && !wasInRange)
         {
             wasInRange = true;
             Debug.Log("Was in range true");
