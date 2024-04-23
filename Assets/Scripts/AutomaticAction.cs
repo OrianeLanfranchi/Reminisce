@@ -21,12 +21,14 @@ public class AutomaticAction : MonoBehaviour
         if(isInRange)
         {
             wasInRange = true;
+            Debug.Log("Was in range true");
             interactAction.Invoke();
         }
 
         if (!isInRange && wasInRange)
         {
             wasInRange = false;
+            Debug.Log("Was in range false");
             leavetAction.Invoke();
         }
     }
