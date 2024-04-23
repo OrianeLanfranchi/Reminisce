@@ -6,21 +6,48 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
 
+    bool stopZoomOut = false;
+    bool stopZoomIn = false;
     [SerializeField] public CinemachineVirtualCamera cam;
 
     public virtual void zoomOutCamera()
     {
         Debug.Log("Zoom out");
-        while(cam.m_Lens.OrthographicSize != 20.0f)
-            cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 20.0f, Time.deltaTime);
-        Debug.Log("chat cpluspt");
+        stopZoomIn = true;
+        stopZoomOut = false;
+        if(cam.m_Lens.OrthographicSize != 20.0f)
+            StartCoroutine(ZoomOutCameraAction());
+    }
+
+    IEnumerator ZoomOutCameraAction()
+    {
+        Debug.Log("ZoomOutCameraAction");
+        if (!stopZoomOut && cam.m_Lens.OrthographicSize != 25.0f)
+        {
+            cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 25.0f, Time.deltaTime);
+            yield return null;
+            StartCoroutine(ZoomOutCameraAction());
+        }
     }
 
     public virtual void zoomInCamera()
     {
         Debug.Log("Zoom in");
-        while(cam.m_Lens.OrthographicSize != 12.22f)
+        stopZoomOut = true;
+        stopZoomIn = false;
+        if (cam.m_Lens.OrthographicSize != 12.22f)
+            StartCoroutine(ZoomInCameraAction());
+    }
+
+    IEnumerator ZoomInCameraAction()
+    {
+        Debug.Log("ZoomInCameraAction");
+        if (!stopZoomIn && cam.m_Lens.OrthographicSize != 12.22f)
+        {
             cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 12.22f, Time.deltaTime);
+            yield return null;
+            StartCoroutine(ZoomInCameraAction());
+        }
     }
 
 
