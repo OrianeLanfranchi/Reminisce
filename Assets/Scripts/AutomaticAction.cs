@@ -8,6 +8,7 @@ public class AutomaticAction : MonoBehaviour
     public bool isInRange;
     public UnityEvent interactAction;
     public UnityEvent leavetAction;
+    bool wasInRange = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,13 @@ public class AutomaticAction : MonoBehaviour
     {
         if(isInRange)
         {
+            wasInRange = true;
             interactAction.Invoke();
         }
 
-        if (!isInRange)
+        if (!isInRange && wasInRange)
         {
+            wasInRange = false;
             leavetAction.Invoke();
         }
     }

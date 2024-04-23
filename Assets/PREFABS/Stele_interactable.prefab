@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 5175932696003473418}
   - component: {fileID: 4486823426302603632}
   - component: {fileID: 179187795111696521}
+  - component: {fileID: 5925526385495369321}
   m_Layer: 6
   m_Name: Stele_interactable
   m_TagString: Untagged
@@ -273,6 +274,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &5925526385495369321
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639265167429978367}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1302995789805517881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -474,6 +502,26 @@ PrefabInstance:
     - target: {fileID: 2236523311389706861, guid: bef6151778404264d9c82ec36c038fca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623397223083480387, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a071eb9f26ec29b48932d423ba48ff62, type: 3}
+    - target: {fileID: 4934103214005427643, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934103214005427643, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934103214005427643, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934103214005427643, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
