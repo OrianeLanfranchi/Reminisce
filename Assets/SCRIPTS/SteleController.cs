@@ -5,8 +5,16 @@ using UnityEngine;
 public class SteleController : MonoBehaviour
 {
     [SerializeField] Animator Stele_Animator;
-    public virtual void onInteract()
+    public virtual void onInteract(GameObject obj)
     {
-        Stele_Animator.SetBool("isActivated", true);
+        if(!Stele_Animator.GetBool("isActivated"))
+        {
+            PlayerController player = obj.GetComponent<PlayerController>();
+            if(player != null)
+            {
+                player.IncreaseSteleMemory();
+            }
+            Stele_Animator.SetBool("isActivated", true);
+        }
     }
 }

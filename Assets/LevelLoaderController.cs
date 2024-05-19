@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class LevelLoaderController : MonoBehaviour
 {
     [SerializeField] public Animator transition;
+    [SerializeField] public float beforeTransitionTime = 1f;
     [SerializeField] public float transitionTime = 1f;
+    [SerializeField] public PlayerController player;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +19,19 @@ public class LevelLoaderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //To delete after debug
-        if(Input.GetKeyDown(KeyCode.Return))
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            LoadNextLevel();
+            beforeTransitionTime = 5f;
+            if (player != null && player.endGame == true)
+                LoadNextLevel();
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                LoadNextLevel();
+            }
         }
     }
 
@@ -31,6 +42,7 @@ public class LevelLoaderController : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
+        yield return new WaitForSeconds(beforeTransitionTime);
         //Play animation
         transition.SetTrigger("Start");
 

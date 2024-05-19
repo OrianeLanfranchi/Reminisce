@@ -15,7 +15,7 @@ public class DoorController : MonoBehaviour
         Debug.Log("Zoom out");
         stopZoomIn = true;
         stopZoomOut = false;
-        if(cam.m_Lens.OrthographicSize != 20.0f)
+        if (cam.m_Lens.OrthographicSize != 20.0f)
             StartCoroutine(ZoomOutCameraAction());
     }
 
@@ -47,6 +47,16 @@ public class DoorController : MonoBehaviour
             cam.m_Lens.OrthographicSize = Mathf.Lerp(cam.m_Lens.OrthographicSize, 12.22f, Time.deltaTime);
             yield return null;
             StartCoroutine(ZoomInCameraAction());
+        }
+    }
+
+    public virtual void onInteract(GameObject obj)
+    {
+        PlayerController player = obj.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            if (player.memoryStele >= 4 && player.memorySkull > 0 && player.memoryTech > 0)
+                player.endGame = true;
         }
     }
 

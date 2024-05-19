@@ -6,9 +6,16 @@ using UnityEngine;
 public class TechController : MonoBehaviour
 {
     [SerializeField] Animator Tech_Animator;
-    public virtual void onInteract()
+    public virtual void onInteract(GameObject obj)
     {
-        Debug.Log("Light up");
-        Tech_Animator.SetBool("isActivated", true);
+        if (!Tech_Animator.GetBool("isActivated"))
+        {
+            PlayerController player = obj.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.IncreaseTechMemory();
+            }
+            Tech_Animator.SetBool("isActivated", true);
+        }
     }
 }

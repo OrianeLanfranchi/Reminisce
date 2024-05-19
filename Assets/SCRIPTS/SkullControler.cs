@@ -6,9 +6,16 @@ using UnityEngine;
 public class SkullControler : MonoBehaviour
 {
     [SerializeField] Animator Skull_Animator;
-    public virtual void onInteract()
+    public virtual void onInteract(GameObject obj)
     {
-        Debug.Log("Sk - Light up - chat cpt");
-        Skull_Animator.SetBool("isActivated", true);
+        if (!Skull_Animator.GetBool("isActivated"))
+        {
+            PlayerController player = obj.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.IncreaseSkullMemory();
+            }
+            Skull_Animator.SetBool("isActivated", true);
+        }
     }
 }
