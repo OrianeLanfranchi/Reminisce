@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoaderController : MonoBehaviour
 {
     [SerializeField] public Animator transition;
-    [SerializeField] public float beforeTransitionTime = 1f;
+    [SerializeField] public float beforeTransitionTime = 0f;
     [SerializeField] public float transitionTime = 1f;
     [SerializeField] public PlayerController player;
 
@@ -28,7 +28,7 @@ public class LevelLoaderController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.anyKey)
             {
                 LoadNextLevel();
             }

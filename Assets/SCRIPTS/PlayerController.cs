@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
         {
             Player_animator.SetBool("BoolJump", false);
         }
+
+        else if (!IsGrounded() && !Player_animator.GetBool("BoolJump"))
+        {
+            Player_animator.SetBool("BoolJump", true);
+        }
+
+        Player_animator.SetFloat("YVelocity", rb.velocity.y);
+
         Move();
 
         Jump();
