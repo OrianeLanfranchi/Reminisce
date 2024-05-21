@@ -7,7 +7,7 @@ public class LevelLoaderController : MonoBehaviour
 {
     [SerializeField] public Animator transition;
     [SerializeField] public float beforeTransitionTime = 0f;
-    [SerializeField] public float transitionTime = 1f;
+    [SerializeField] public float transitionTime = 2f;
     [SerializeField] public PlayerController player;
 
     // Start is called before the first frame update
@@ -24,7 +24,10 @@ public class LevelLoaderController : MonoBehaviour
         {
             beforeTransitionTime = 5f;
             if (player != null && player.endGame == true)
+            {
+                player.endGame = false;
                 LoadNextLevel();
+            }
         }
         else
         {
@@ -42,7 +45,8 @@ public class LevelLoaderController : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        yield return new WaitForSeconds(beforeTransitionTime);
+        //yield return new WaitForSeconds(beforeTransitionTime);
+
         //Play animation
         transition.SetTrigger("Start");
 
