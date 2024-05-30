@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
         else if (!IsGrounded() && !Player_animator.GetBool("BoolJump"))
         {
+            Player_animator.SetBool("BoolWalk", false);
             Player_animator.SetBool("BoolJump", true);
         }
 
