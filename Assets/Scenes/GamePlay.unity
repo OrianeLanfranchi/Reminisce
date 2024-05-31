@@ -1847,6 +1847,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 930316454}
   m_SourcePrefab: {fileID: 100100000, guid: 813ea2d540a6cf34c8783efd0d780701, type: 3}
+--- !u!1 &167824189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1832191260629978341, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+  m_PrefabInstance: {fileID: 1457062396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &170927998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5595871811633619300, guid: d4a4fca40ce161a47af3a9edc45f110f, type: 3}
@@ -9702,17 +9707,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2236523311389706861, guid: bef6151778404264d9c82ec36c038fca, type: 3}
   m_PrefabInstance: {fileID: 1457062396}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &321990529 stripped
+--- !u!114 &321990529
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6211227712805675800, guid: bef6151778404264d9c82ec36c038fca, type: 3}
-  m_PrefabInstance: {fileID: 1457062396}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 167824189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c823199dd95154fbf60c76a8647b65, type: 3}
+  m_Script: {fileID: 11500000, guid: cd313942fd529fb41a18454fe4cada5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 1511605755}
+  dialogues:
+  - You still have memories to remember.
+  dialogues_end:
+  - You remember now.
+  dialogueText: {fileID: 928318656}
+  writingSpeed: 0.005
 --- !u!4 &325731935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8782160265944710982, guid: 2632195d7809a634b910d947052ba092, type: 3}
@@ -9946,7 +9959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -9959,18 +9972,18 @@ PrefabInstance:
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 321990529}
+      objectReference: {fileID: 1866463683}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1866463683}
+      objectReference: {fileID: 321990529}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: leavetAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: leavetAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseWindow
+      value: EndDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -9990,16 +10003,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: leavetAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueBox, Assembly-CSharp
+      value: DialogueBox_Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueBox, Assembly-CSharp
+      value: DoorController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DoorController, Assembly-CSharp
+      value: DialogueBox_Door, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 639352727}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
@@ -10010,7 +10027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 394886898163841492, guid: 46faaea1449e35f40a5d686d9467e037, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -11853,7 +11870,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270, y: -58, z: -10}
+  m_LocalPosition: {x: -72.6, y: 5.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12468,6 +12485,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 875853841}
+    - target: {fileID: 507654682809802431, guid: 2961ee661f2c4e748a91d690bacf8c6d, type: 3}
+      propertyPath: transitionTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 507654682809802431, guid: 2961ee661f2c4e748a91d690bacf8c6d, type: 3}
       propertyPath: beforeTransitionTime
       value: 3
@@ -13264,6 +13285,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819674326}
     m_Modifications:
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: One soul could not behold our thriving greatness after its time has
+        passed, however it contributed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: All souls are the heart of our paradise.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: Each one of us, however, will remain forever remembered, as its successors
+        take over.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: Our traditions are meant to remember everyone who once lived, and everyone
+        who will die.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[4]
+      value: 'As a soul, we die, but as a civilisation, we are immortal. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[5]
+      value: 'As a soul, we die, but as a civilisation, we are immortal. '
+      objectReference: {fileID: 0}
     - target: {fileID: 5856802503921262277, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 179.9964
@@ -14193,6 +14245,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819674326}
     m_Modifications:
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: ' Our greatness is bound to our ancestors.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: To the generations before us, who set up the foundations of our world.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: 'We must remember all the souls we own our present lives to; each life
+        who helped erect the pillars of our civilization. '
+      objectReference: {fileID: 0}
     - target: {fileID: 5856802503921262277, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
       propertyPath: m_LocalPosition.x
       value: -355.1
@@ -15769,6 +15838,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5221255548919048950, guid: 187fe4860144ab74faef8bada3cc6a57, type: 3}
   m_PrefabInstance: {fileID: 1882694188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &928318656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5664970419258658688, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+  m_PrefabInstance: {fileID: 1457062396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &930316453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1015837624947920231, guid: 813ea2d540a6cf34c8783efd0d780701, type: 3}
@@ -18594,7 +18674,7 @@ Transform:
   m_GameObject: {fileID: 1313830697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270, y: -58, z: -10}
+  m_LocalPosition: {x: -72.6, y: 5.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19372,6 +19452,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819674326}
     m_Modifications:
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: We rose. We sculpted the ground, reaching for the skies.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: We sculpted this world in our image intending to create a sanctum -
+        of creating our world. We created a paradise, meant to last for eternity.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: May this be engraved in the stone, for everyone to remember.
+      objectReference: {fileID: 0}
     - target: {fileID: 5856802503921262277, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60.3
@@ -19563,10 +19660,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6211227712805675800, guid: bef6151778404264d9c82ec36c038fca, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1832191260629978341, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 321990529}
     - targetCorrespondingSourceObject: {fileID: 7776913418032482511, guid: bef6151778404264d9c82ec36c038fca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -20259,6 +20360,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Skull_Animator: {fileID: 1508819730}
+--- !u!1 &1511605755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5790593980877223809, guid: bef6151778404264d9c82ec36c038fca, type: 3}
+  m_PrefabInstance: {fileID: 1457062396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1515694071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25962,6 +26068,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819674326}
     m_Modifications:
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: ' Each being is ephemeral.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: 'We breathe for a time, before being called back to the void. Acts,
+        however, remain. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: Our paradise was built by so many souls that couldn't be counted, driven
+        by the same will and dream throughout centuries.
+      objectReference: {fileID: 0}
+    - target: {fileID: 211665678100349514, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: What we created will last forever.
+      objectReference: {fileID: 0}
     - target: {fileID: 5856802503921262277, guid: a70dc4c3b720862419d8216ae1119e14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 347.4564
@@ -32944,11 +33072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7165059488810129219, guid: 710bb714317fa8a4fbcccd6b794ad900, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 270
+      value: -72.6
       objectReference: {fileID: 0}
     - target: {fileID: 7165059488810129219, guid: 710bb714317fa8a4fbcccd6b794ad900, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -58
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 7165059488810129219, guid: 710bb714317fa8a4fbcccd6b794ad900, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33014,6 +33142,34 @@ PrefabInstance:
     - target: {fileID: 6673565040391242494, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
       propertyPath: m_LocalPosition.y
       value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788941328015134169, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788941328015134169, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: Developping of our paradise means developing knowledge.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788941328015134169, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: We created it, powered it by the means of a technology born from our
+        dreamers' minds, assembled by our crafters' hands, used by our wise souls.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788941328015134169, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: We meant to preserve our paradise, throughout the centuries. Souls wither
+        with time, although we will always remember.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788941328015134169, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: They were created from this knowledge. Similar to us by shape, but they
+        do not live thus they do not die.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788941328015134169, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
+      propertyPath: dialogues.Array.data[4]
+      value: 'We created them to remember. We created them to witness all events.
+        We created them to exist forever in our paradise. '
       objectReference: {fileID: 0}
     - target: {fileID: 7908705818739315314, guid: 9ae9cab7cba58d649ac8a6be859d97d1, type: 3}
       propertyPath: m_LocalPosition.x
