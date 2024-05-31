@@ -45,7 +45,7 @@ public class LevelLoaderController : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        //yield return new WaitForSeconds(beforeTransitionTime);
+        yield return new WaitForSeconds(beforeTransitionTime);
 
         //Play animation
         transition.SetTrigger("Start");
